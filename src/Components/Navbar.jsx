@@ -3,6 +3,9 @@ import logoImg from '../assets/assets/logo.png'
 import githubLogo from '../assets/assets/icons8-github-logo-30.png'
 import { NavLink } from 'react-router';
 
+
+
+
 const Navbar = () => {
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -41,10 +44,16 @@ const Navbar = () => {
     </div>
   </div>
   <div className="navbar-end mr-8 ">
-  <button className="flex items-center gap-2 rounded bg-gradient-to-r from-[#632EE3] to-[#9F62F2] px-4 py-2 text-white hover:scale-108 hover:shadow-lg hover:opacity-100 cursor-pointer ">
-    <img src={githubLogo} alt="GitHub Logo" className="w-5 h-5" />
+    <a
+    href="https://github.com/tamjid97/tamjid97.git"
+    target="_blank"  
+    rel="git hub repo"
+    className="flex items-center gap-2 rounded bg-gradient-to-r from-[#632EE3] to-[#9F62F2] px-4 py-2 text-white hover:scale-105 hover:shadow-lg hover:opacity-90 cursor-pointer transition-all duration-300"
+  >
+  <img src={githubLogo} alt="GitHub Logo" className="w-5 h-5" />
     <span>Contribute</span>
-  </button>
+  </a>
+
 </div>
 
 </div>
