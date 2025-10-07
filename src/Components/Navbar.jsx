@@ -24,10 +24,13 @@ const Navbar = () => {
         
       </ul>
     </div>
-    <div className='flex justify-center gap-1.5 cursor-pointer ml-5'>
+    <NavLink>
+      <div className='flex justify-center gap-1.5 cursor-pointer ml-5'>
     <img className='w-10 h-10' src={logoImg} alt="" />
     <a className="text-xl bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent mt-1">HERO.IO</a>
     </div>
+    </NavLink>
+    
   </div>
   <div className="navbar-center hidden lg:flex">
     <div className=''>
