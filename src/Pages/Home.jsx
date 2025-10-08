@@ -7,12 +7,20 @@ import star from '../assets/assets/icon-ratings.png'
 import damoimg from '../assets/assets/demo-app (5).webp'
 
 
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
+import useProducts from '../hooks/useCards';
 
 
 
 const Home = () => {
+const {products, loading, error} = useProducts()
+
 const Cardss = useLoaderData()
+
+const data = useProducts()
+console.log(data);
+
+const featuredCards = Cardss.slice(0 ,8)
 console.log(Cardss);
   return (
     
@@ -94,12 +102,12 @@ console.log(Cardss);
 
         <div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-15 mt-10">
-  {Cardss && Cardss.map((card, i) => (
+  {Cardss && featuredCards.map((card, i) => (
     <div
       key={i}
       className="p-5 rounded-3xl hover:scale-105 hover:shadow-lg hover:opacity-90 cursor-pointer bg-white transition-transform duration-300"
     >
-      <img src={damoimg} alt="" className="rounded-2xl w-full h-48 object-cover"/>
+      <img src={card.image} alt="" className="rounded-2xl w-50 h-48 object-cover"/>
       <h2 className="mt-3 text-2xl font-semibold">{card.title}</h2>
       <div className="flex justify-between mt-4">
         <div className="flex gap-1 items-center">
@@ -111,16 +119,24 @@ console.log(Cardss);
           <p>{card.ratingAvg}</p>
         </div>
       </div>
+          
     </div>
+    
   ))}
 </div>
-
+  <div className='mt-15 mb-10'>
+  <Link to="/Apps"  className="items-center rounded-full bg-gradient-to-r from-[#632EE3] to-[#9F62F2] px-6 py-3 text-white font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:opacity-90 cursor-pointer">
+  Show All
+  </Link>
+  </div>
 
         </div>
       </div>
+
+
     </section>
     
   );
 };
 
-export default Home;
+export default Home;                  
