@@ -12,7 +12,7 @@ const router = createBrowserRouter([
   
 
   {
-    errorElement: <ErrorApp/>,
+    
     path: '/',
     element: <MainLayout/>,
     
@@ -20,6 +20,8 @@ const router = createBrowserRouter([
 {
     index: true,
     element: <Home />,
+    loader: () => fetch("/HomeCardData.json"),
+
   },
   {
     path: '/Apps',
@@ -30,7 +32,7 @@ const router = createBrowserRouter([
     element: <Installation/>,
   },
   {
-    index: true,
+    path: '/',
     element: <HomeCard/>,
   },
 

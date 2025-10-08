@@ -2,10 +2,18 @@ import React from 'react';
 import google from '../assets/assets/icons8-google-play-store-48.png'
 import appStor from '../assets/assets/icons8-app-store-64.png'
 import mobail from '../assets/assets/hero.png'
-import HomeCard from './HomeCard';
+import dowlodImg from '../assets/assets/icon-downloads.png'
+import star from '../assets/assets/icon-ratings.png'
+import damoimg from '../assets/assets/demo-app (5).webp'
+
+
+import { useLoaderData } from 'react-router';
+
+
 
 const Home = () => {
-  
+const Cardss = useLoaderData()
+console.log(Cardss);
   return (
     
 
@@ -85,7 +93,29 @@ const Home = () => {
         {/* json card */}
 
         <div>
-          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-15 mt-10">
+  {Cardss && Cardss.map((card, i) => (
+    <div
+      key={i}
+      className="p-5 rounded-3xl hover:scale-105 hover:shadow-lg hover:opacity-90 cursor-pointer bg-white transition-transform duration-300"
+    >
+      <img src={damoimg} alt="" className="rounded-2xl w-full h-48 object-cover"/>
+      <h2 className="mt-3 text-2xl font-semibold">{card.title}</h2>
+      <div className="flex justify-between mt-4">
+        <div className="flex gap-1 items-center">
+          <img src={dowlodImg} alt="downloads" className="w-5 h-5"/>
+          <p className="-mt-0.5">{card.downloads}</p>
+        </div>
+        <div className="flex gap-1 items-center">
+          <img src={star} alt="rating" className="w-5 h-5"/>
+          <p>{card.ratingAvg}</p>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+
         </div>
       </div>
     </section>

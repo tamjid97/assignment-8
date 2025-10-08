@@ -1,7 +1,7 @@
 import React, { use } from 'react';
 
-const HomeCard = ({CardPromise}) => {
-  const CardShow =use(CardPromise);
+const HomeCard = () => {
+  
   
   return (
     <div>
