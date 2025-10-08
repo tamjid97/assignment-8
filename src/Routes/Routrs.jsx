@@ -5,6 +5,7 @@ import Installation from '../Pages/Installation'
 import MainLayout from "../Layouts/MainLayout";
 import ErrorPage from "../Pages/ErrorPage";
 import ErrorApp from "../Pages/ErrorApp";
+import HomeCard from "../Pages/HomeCard";
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
     path: '/Installation',
     element: <Installation/>,
   },
+  {
+    index: true,
+    element: <HomeCard/>,
+  },
+
     ]
   },
   {

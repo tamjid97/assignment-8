@@ -5,7 +5,6 @@ import { NavLink } from 'react-router';
 
 
 
-
 const Navbar = () => {
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -27,25 +26,34 @@ const Navbar = () => {
         
       </ul>
     </div>
-    <NavLink>
-      <div className='flex justify-center gap-1.5 cursor-pointer ml-5'>
-    <img className='w-10 h-10' src={logoImg} alt="" />
-    <a className="text-xl bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent mt-1">HERO.IO</a>
-    </div>
-    </NavLink>
+    <NavLink to="/" className="logo-link">
+  <div className="flex justify-center items-center gap-1.5 cursor-pointer ml-5">
+    <img className="w-10 h-10" src={logoImg} alt="Logo" />
+    <span className="text-xl bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent font-inter mt-1">
+      HERO.IO
+    </span>
+  </div>
+</NavLink>
+
     
   </div>
   <div className="navbar-center hidden lg:flex">
     <div className=''>
-      <NavLink  to='/' className="m-10">Home</NavLink>
-      <NavLink to='/Apps' className="m-10">Apps</NavLink>
-      <NavLink to='/Installation' className="m-10">Installation</NavLink>
+      <NavLink  to='/' className={({ isActive }) =>
+    isActive ? "active m-10" : "m-10"
+  }>Home</NavLink>
+      <NavLink to='/Apps' className={({ isActive }) =>
+    isActive ? "active m-10" : "m-10"
+  }>Apps</NavLink>
+      <NavLink to='/Installation' className={({ isActive }) =>
+    isActive ? "active m-10" : "m-10"
+  }>Installation</NavLink>
         
     </div>
   </div>
   <div className="navbar-end mr-8 ">
     <a
-    href="https://github.com/tamjid97/tamjid97.git"
+    href="https://github.com/tamjid97/assignment-8.git"
     target="_blank"  
     rel="git hub repo"
     className="flex items-center gap-2 rounded bg-gradient-to-r from-[#632EE3] to-[#9F62F2] px-4 py-2 text-white hover:scale-105 hover:shadow-lg hover:opacity-90 cursor-pointer transition-all duration-300"

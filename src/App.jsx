@@ -1,12 +1,20 @@
+import { Suspense } from "react"
+import HomeCard from "./Pages/HomeCard";
 
+
+const CardPromise = fetch('HomeCardData.json').then(res => res.json());
 function App() {
 
 
   return (
     <>
-      <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+    <div>
+      <Suspense fallback={<span className="loading loading-spinner loading-xl"></span>}>
+    <HomeCard CardPromise={CardPromise}>
+
+    </HomeCard>
+      </Suspense>
+    </div>
     </>
   )
 }
