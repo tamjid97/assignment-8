@@ -80,13 +80,13 @@ console.log(searchedProducts);
             </Link>
             
             <div className="flex justify-between mt-4">
-              <div className="flex gap-1 items-center">
+              <div className="flex gap-1 items-center bg-[#f1f5e8] rounded p-0.5">
                 <img src={dowlodImg} alt="downloads" className="w-5 h-5" />
-                <p className="-mt-0.5">{card.downloads}M</p>
+                <p className="-mt-0.5 text-[#13d330]">{card.downloads}M</p>
               </div>
-              <div className="flex gap-1 items-center">
+              <div className="flex gap-1 items-center bg-[#fff0e1] rounded p-0.5">
                 <img src={star} alt="rating" className="w-5 h-5" />
-                <p>{card.ratingAvg}</p>
+                <p className='[#ff8811]'>{card.ratingAvg}</p>
               </div>
             </div>
           </div>
