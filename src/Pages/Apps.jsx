@@ -86,7 +86,7 @@ console.log(searchedProducts);
               </div>
               <div className="flex gap-1 items-center bg-[#fff0e1] rounded p-0.5">
                 <img src={star} alt="rating" className="w-5 h-5" />
-                <p className='[#ff8811]'>{card.ratingAvg}</p>
+                <p className='text-[#ff8811]'>{card.ratingAvg}</p>
               </div>
             </div>
           </div>
