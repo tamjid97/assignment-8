@@ -21,7 +21,7 @@ const router = createBrowserRouter([
 {
     index: true,
     element: <Home />,
-    loader: () => fetch("/HomeCardData.json"),
+    loader: () => fetch("../HomeCardData.json"),
 
   },
   {

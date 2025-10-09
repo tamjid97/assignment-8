@@ -9,11 +9,14 @@ const Footer = () => {
 
 <footer className="footer mt-4 sm:footer-horizontal bg-base-300 text-base-content p-10">
       <nav>
-        <div className=''>
-          <img className='w-[40px] ' src={logo} alt="" />
-          <p className='text-[17px]'>Discover, download, and enjoy the best apps all in one place <br />.
+        <div>
+          <div className='flex gap-1'>
+            <div> <img className='w-[40px] mb-5' src={logo} alt="" /></div>
+            <div className='mt-1.5'><span className="text-xl bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent font-inter">HERO.IO</span></div>
+          </div>
+          <p className='text-[17px]'>Discover, download, and enjoy the best apps all in one place. <br />
             
-            Whether you’re connecting with friends, creating content <br />, or managing your work — our platform brings you trusted <br />apps that millions rely on every day.
+            Whether you’re connecting with friends, creating content, <br /> or managing your work — our platform brings you trusted <br />apps that millions rely on every day.
             Available now on Google <br /> Play and the App Store — built for performance, privacy, and you.</p>
         </div>
       </nav>

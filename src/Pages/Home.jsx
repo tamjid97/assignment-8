@@ -116,7 +116,7 @@ console.log(Cardss);
                             <div className="flex justify-between mt-4">
                                 <div className="flex gap-1 items-center">
                                     <img src={dowlodImg} alt="downloads" className="w-5 h-5"/>
-                                    <p className="-mt-0.5">{card.downloads}</p>
+                                    <p className="-mt-0.5">{card.downloads}M</p>
                                 </div>
                                 <div className="flex gap-1 items-center">
                                     <img src={star} alt="rating" className="w-5 h-5"/>
