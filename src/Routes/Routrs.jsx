@@ -6,6 +6,7 @@ import MainLayout from "../Layouts/MainLayout";
 import ErrorPage from "../Pages/ErrorPage";
 import ErrorApp from "../Pages/ErrorApp";
 import HomeCard from "../Pages/HomeCard";
+import Ratings from "../Pages/Ratings";
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <HomeCard/>,
+  },
+  {
+    path: '/Ratings/:id',
+    element: <Ratings/>
   },
 
     ]

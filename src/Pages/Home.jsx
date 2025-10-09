@@ -5,6 +5,7 @@ import mobail from '../assets/assets/hero.png'
 import dowlodImg from '../assets/assets/icon-downloads.png'
 import star from '../assets/assets/icon-ratings.png'
 import damoimg from '../assets/assets/demo-app (5).webp'
+import Ratings from './Ratings';
 
 
 import { Link, useLoaderData } from 'react-router';
@@ -13,7 +14,7 @@ import useProducts from '../hooks/useCards';
 
 
 const Home = () => {
-const {products, loading, error} = useProducts()
+const {products, loading, error, } = useProducts()
 
 const Cardss = useLoaderData()
 
@@ -100,29 +101,32 @@ console.log(Cardss);
 
         {/* json card */}
 
-        <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-15 mt-10">
-  {Cardss && featuredCards.map((card, i) => (
-    <div
-      key={i}
-      className="p-5 rounded-3xl hover:scale-105 hover:shadow-lg hover:opacity-90 cursor-pointer bg-white transition-transform duration-300"
-    >
-      <img src={card.image} alt="" className="rounded-2xl w-50 h-48 object-cover"/>
-      <h2 className="mt-3 text-2xl font-semibold">{card.title}</h2>
-      <div className="flex justify-between mt-4">
-        <div className="flex gap-1 items-center">
-          <img src={dowlodImg} alt="downloads" className="w-5 h-5"/>
-          <p className="-mt-0.5">{card.downloads}</p>
-        </div>
-        <div className="flex gap-1 items-center">
-          <img src={star} alt="rating" className="w-5 h-5"/>
-          <p>{card.ratingAvg}</p>
-        </div>
-      </div>
-          
-    </div>
-    
-  ))}
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-15 mt-10">
+                {featuredCards && featuredCards.map((card, i) => (
+                    <Link 
+                        key={i} 
+                        to={`/Ratings/${card.id}`}
+                        className="block"
+                    >
+                        <div
+                            className="p-5 rounded-3xl hover:scale-105 hover:shadow-lg hover:opacity-90 cursor-pointer bg-white transition-transform duration-300"
+                        >
+                            <img src={card.image} alt="" className="rounded-2xl w-50 h-48 object-cover"/>
+                            <h2 className="mt-3 text-2xl font-semibold">{card.title}</h2>
+                            <div className="flex justify-between mt-4">
+                                <div className="flex gap-1 items-center">
+                                    <img src={dowlodImg} alt="downloads" className="w-5 h-5"/>
+                                    <p className="-mt-0.5">{card.downloads}</p>
+                                </div>
+                                <div className="flex gap-1 items-center">
+                                    <img src={star} alt="rating" className="w-5 h-5"/>
+                                    <p>{card.ratingAvg}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </Link> 
+                    
+                ))}
 </div>
   <div className='mt-15 mb-10'>
   <Link to="/Apps"  className="items-center rounded-full bg-gradient-to-r from-[#632EE3] to-[#9F62F2] px-6 py-3 text-white font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:opacity-90 cursor-pointer">
@@ -130,7 +134,7 @@ console.log(Cardss);
   </Link>
   </div>
 
-        </div>
+        
       </div>
 
 
