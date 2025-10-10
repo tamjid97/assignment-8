@@ -31,24 +31,41 @@ const Ratings = () => {
 
     const { image, title, companyName, description, size, reviews, ratingAvg, downloads, ratings } = product
 
+    
     const handleAddTowishList = () => {
-            toast('What fun! You successfully installed it.🤩')
-        if(isInstalled) return;
+        
+        
+        if (isInstalled) {
+        
+            toast('✅ You already have one installed 🫵');
+            return; 
+        }
 
         const existingList = JSON.parse(localStorage.getItem('wishlist'))
         let updatedList = []
+
+        
         if (existingList) {
             const isDuplicate = existingList.some(p => p.id === product.id)
-            if (isDuplicate) return alert('✅ You already have one installed 🫵')
+            if (isDuplicate) {
+                
+                toast('✅ You already have one installed 🫵');
+                setIsInstalled(true); 
+                return;
+            }
             updatedList = [...existingList, product]
         } else {
             updatedList.push(product)
         }
+
+        
         localStorage.setItem('wishlist', JSON.stringify(updatedList))
         
-    
+        
         setIsInstalled(true);
+        toast('What fun! You successfully installed it.🤩'); 
     }
+    
 
     return (
         <div>
@@ -88,8 +105,7 @@ const Ratings = () => {
                             ${isInstalled
                                 ? 'bg-cyan-400 cursor-not-allowed' 
                                 : 'bg-[#00d390] hover:shadow-lg hover:opacity-120 hover:bg-gradient-to-r from-[#2ee3b3] to-[#62f2da]' 
-                            }`
-                        }
+                            }`}
                     >
                         {isInstalled ? 'Installed!' : `Install Now (${size} MB)`}
                     </Link>
@@ -99,48 +115,48 @@ const Ratings = () => {
 <ToastContainer />
             <div>
               {/* chart */}
-              <div className='space-y-3'>
-              <h3 className='text-4xl ml-25 font-semibold p-5'>Ratings</h3>
-              <div className='mb-25 rounded-xl p-4 h-80'>
+            <div className='space-y-3'>
+            <h3 className='text-4xl ml-25 font-semibold p-5'>Ratings</h3>
+            <div className='mb-25 rounded-xl p-4 h-80'>
                 <ResponsiveContainer width="100%" height={400}>
-                                <ComposedChart
-                                    layout="vertical"
-                                    data={ratings}
-                                    margin={{
-                                        top: 20,
-                                        right: 20,
-                                        bottom: 20,
-                                        left: 40,
-                                    }}
-                                >
-                                    <CartesianGrid />
-                                    <XAxis type="number" />
-                                    <YAxis
-                                        dataKey="name"
-                                        type="category"
-                                        tick={{ fontSize: 20 }}
-                                    />
-                                    <Tooltip />
-                                    <Legend />
+                            <ComposedChart
+                                layout="vertical"
+                                data={ratings}
+                                margin={{
+                                    top: 20,
+                                    right: 20,
+                                    bottom: 20,
+                                    left: 40,
+                                }}
+                            >
+                                <CartesianGrid />
+                                <XAxis type="number" />
+                                <YAxis
+                                    dataKey="name"
+                                    type="category"
+                                    tick={{ fontSize: 20 }}
+                                />
+                                <Tooltip />
+                                <Legend />
 
-                                    <Bar dataKey="count" barSize={20} fill="#00d390" />
+                                <Bar dataKey="count" barSize={20} fill="#00d390" />
 
-                                </ComposedChart>
-                            </ResponsiveContainer>
+                            </ComposedChart>
+                        </ResponsiveContainer>
 
-              </div>
-              </div>
+    </div>
+    </div>
 
 <div>
-  <h1 className='text-4xl ml-8 font-semibold p-5'>Description</h1>
-  <div className='p-10 text-xl text-gray-600'>
+<h1 className='text-4xl ml-8 font-semibold p-5'>Description</h1>
+<div className='p-10 text-xl text-gray-600'>
 <p>This productivity app is designed for lifelong learners who want to capture, organize, and retain knowledge efficiently. It combines reading, note-taking, and spaced repetition to make learning a structured and enjoyable process. You can save articles, videos, and resources from across the web into a clean, distraction-free library. Built-in highlighting and annotation tools let you capture key insights as you read. Notes are automatically linked to the original source, keeping context intact.</p>
-  <p className='mt-5'>What makes the app powerful is its integration of spaced repetition algorithms. Important notes can be turned into flashcards, and the app reminds you to review them at scientifically optimized intervals, ensuring long-term retention. This makes it ideal for students, professionals preparing for certifications, or anyone passionate about continuous learning. A personal knowledge graph visually connects related ideas, helping you see the bigger picture.</p>
-  <p className='mt-5'>Collaboration features let you share resources or co-create study libraries with peers. Offline mode ensures you can study anytime, anywhere. With advanced search and categorization, your personal knowledge base grows without ever becoming cluttered. Insights and progress reports show how much you’ve learned and how consistent you’ve been.</p>
+<p className='mt-5'>What makes the app powerful is its integration of spaced repetition algorithms. Important notes can be turned into flashcards, and the app reminds you to review them at scientifically optimized intervals, ensuring long-term retention. This makes it ideal for students, professionals preparing for certifications, or anyone passionate about continuous learning. A personal knowledge graph visually connects related ideas, helping you see the bigger picture.</p>
+<p className='mt-5'>Collaboration features let you share resources or co-create study libraries with peers. Offline mode ensures you can study anytime, anywhere. With advanced search and categorization, your personal knowledge base grows without ever becoming cluttered. Insights and progress reports show how much you’ve learned and how consistent you’ve been.</p>
 
 <p className='mt-5'>By combining resource organization, active recall, and collaboration, this app turns scattered learning into a structured journey. Whether you’re mastering a language, keeping up with industry research, or exploring personal interests, it becomes your personal learning companion. It’s not just about consuming information—it’s about retaining, applying, and growing your knowledge over time. This app empowers you to be a smarter, more capable version of yourself every single day.</p>
-  </div>
-  
+</div>
+
 </div>
 
             </div>
